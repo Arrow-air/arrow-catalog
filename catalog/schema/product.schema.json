@@ -2,20 +2,16 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/Arrow-air/arrow-catalog/catalog/schema/product.schema.json",
   "title": "Arrow Catalog Product",
+  "description": "Lightweight guardrail schema for product catalog entries. Keep this readable; use scripts/validate-catalog.py for cross-reference checks.",
   "type": "object",
-  "additionalProperties": false,
+  "additionalProperties": true,
   "required": [
     "id",
     "slug",
     "name",
     "category",
     "status",
-    "lifecycleStage",
     "shortDescription",
-    "longDescription",
-    "intendedAudience",
-    "included",
-    "notIncluded",
     "standards",
     "supportPolicyId",
     "warrantyPolicyId",
@@ -45,19 +41,19 @@
     "safetyNotice": { "type": "string" },
     "included": {
       "type": "array",
-      "items": { "$ref": "#/$defs/productLineItem" }
+      "items": { "$ref": "#/$defs/lineItem" }
     },
     "notIncluded": {
       "type": "array",
-      "items": { "$ref": "#/$defs/productLineItem" }
+      "items": { "$ref": "#/$defs/lineItem" }
     },
     "requiredSeparately": {
       "type": "array",
-      "items": { "$ref": "#/$defs/productLineItem" }
+      "items": { "$ref": "#/$defs/lineItem" }
     },
     "standards": {
       "type": "array",
-      "items": { "$ref": "#/$defs/standardLink" }
+      "items": { "$ref": "#/$defs/standard" }
     },
     "supportPolicyId": { "type": "string" },
     "warrantyPolicyId": { "type": "string" },
@@ -72,9 +68,9 @@
     "updatedAt": { "type": "string", "format": "date" }
   },
   "$defs": {
-    "productLineItem": {
+    "lineItem": {
       "type": "object",
-      "additionalProperties": false,
+      "additionalProperties": true,
       "required": ["label"],
       "properties": {
         "label": { "type": "string" },
@@ -82,114 +78,46 @@
         "notes": { "type": "string" }
       }
     },
-    "standardLink": {
+    "standard": {
       "type": "object",
-      "additionalProperties": false,
+      "additionalProperties": true,
       "required": ["id", "label", "url", "kind", "required"],
       "properties": {
         "id": { "type": "string" },
         "label": { "type": "string" },
         "url": { "type": "string" },
-        "kind": {
-          "type": "string",
-          "enum": ["manufacturing-guide", "bom", "cad", "assembly-guide", "qa-checklist", "test-procedure", "release-notes", "other"]
-        },
-        "version": { "type": "string" },
-        "required": { "type": "boolean" },
-        "description": { "type": "string" }
+        "kind": { "type": "string" },
+        "required": { "type": "boolean" }
       }
     },
     "offer": {
       "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "id",
-        "manufacturerId",
-        "checkoutGroupId",
-        "status",
-        "regionLabel",
-        "shipsFrom",
-        "paymentMethods",
-        "checkout",
-        "merchantOfRecordName"
-      ],
+      "additionalProperties": true,
+      "required": ["id", "manufacturerId", "checkoutGroupId", "status", "checkout"],
       "properties": {
         "id": { "type": "string" },
         "manufacturerId": { "type": "string" },
         "checkoutGroupId": { "type": "string" },
         "status": {
           "type": "string",
-          "enum": ["available", "limited-availability", "waitlist", "quote-required", "out-of-stock", "hidden"]
+          "enum": ["available", "limited-availability", "waitlist", "quote-required", "out-of-stock", "hidden", "coming-soon"]
         },
-        "regionLabel": { "type": "string" },
-        "shipsFrom": { "type": "string" },
-        "shipsTo": { "type": "array", "items": { "type": "string" } },
-        "price": { "$ref": "#/$defs/money" },
         "priceDisplay": { "type": "string" },
-        "leadTimeDisplay": { "type": "string" },
-        "inventoryDisplay": { "type": "string" },
         "paymentMethods": {
           "type": "array",
-          "items": { "$ref": "#/$defs/paymentMethod" }
+          "items": { "type": "string" }
         },
-        "checkout": { "$ref": "#/$defs/checkoutConfig" },
-        "merchantOfRecordName": { "type": "string" },
-        "daoFee": { "$ref": "#/$defs/daoFee" },
-        "aip009": { "$ref": "#/$defs/aip009" },
-        "notes": { "type": "string" }
-      }
-    },
-    "checkoutConfig": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["mode", "ctaLabel", "immediatePayment"],
-      "properties": {
-        "mode": {
-          "type": "string",
-          "enum": ["external-payment-link", "manufacturer-site", "embedded-checkout", "crypto-checkout", "quote-form"]
-        },
-        "ctaLabel": { "type": "string" },
-        "url": { "type": "string" },
-        "opensInNewTab": { "type": "boolean" },
-        "immediatePayment": { "type": "boolean" },
-        "customerNotice": { "type": "string" }
-      }
-    },
-    "money": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["amount", "currency"],
-      "properties": {
-        "amount": { "type": "number" },
-        "currency": { "type": "string" }
-      }
-    },
-    "paymentMethod": {
-      "type": "string",
-      "enum": ["card", "usdc", "bank-transfer", "wire", "crypto-other", "invoice"]
-    },
-    "daoFee": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["type", "includedInPrice", "remittance"],
-      "properties": {
-        "type": { "type": "string", "enum": ["percentage", "flat", "none", "tbd"] },
-        "percentage": { "type": "number" },
-        "flatAmount": { "$ref": "#/$defs/money" },
-        "includedInPrice": { "type": "boolean" },
-        "remittance": { "type": "string", "enum": ["per-sale", "monthly", "manual", "automated-split", "tbd"] },
-        "publicLabel": { "type": "string" }
-      }
-    },
-    "aip009": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "catalogEntryId": { "type": "string" },
-        "bondRequired": { "type": "string" },
-        "bondLockPeriodDays": { "type": "number" },
-        "commissionPercentage": { "type": "number" },
-        "onchainCatalogUrl": { "type": "string" }
+        "checkout": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["mode", "ctaLabel", "immediatePayment"],
+          "properties": {
+            "mode": { "type": "string" },
+            "ctaLabel": { "type": "string" },
+            "url": { "type": "string" },
+            "immediatePayment": { "type": "boolean" }
+          }
+        }
       }
     }
   }
