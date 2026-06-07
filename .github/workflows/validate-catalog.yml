@@ -1,0 +1,26 @@
+name: Validate catalog
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Validate catalog
+        run: python3 scripts/validate-catalog.py
+
+      - name: Check JSON formatting/parsing
+        run: |
+          find catalog -name '*.json' -print0 | xargs -0 -n1 python3 -m json.tool >/dev/null
