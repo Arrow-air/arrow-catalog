@@ -1,0 +1,62 @@
+{
+  "id": "quiver-spare-propellers-v0",
+  "slug": "quiver-spare-propellers",
+  "name": "Quiver Spare Propellers",
+  "subtitle": "Spare propeller set for Quiver DevKit operators",
+  "category": "part",
+  "status": "coming-soon",
+  "lifecycleStage": "devkit",
+  "shortDescription": "A placeholder spare-parts catalog item used to validate same-manufacturer cart behavior.",
+  "longDescription": "This entry is intentionally minimal. It exists so the catalog can model buying a Quiver DevKit and spare parts from the same manufacturer in one checkout.",
+  "intendedAudience": "Quiver DevKit builders and operators.",
+  "safetyNotice": "Use only propellers that match the documented Quiver configuration and inspect before flight.",
+  "included": [
+    {
+      "label": "Spare propeller set",
+      "notes": "TBD: exact propeller model, handedness, and quantity."
+    }
+  ],
+  "notIncluded": [],
+  "requiredSeparately": [],
+  "standards": [
+    {
+      "id": "quiver-manufacturing-guide",
+      "label": "Quiver Manufacturing Guide",
+      "url": "https://www.arrowair.com/quiver/Manufacturing/Manufacturing-Guide",
+      "kind": "manufacturing-guide",
+      "required": true,
+      "description": "Reference standard until a dedicated spare-parts standard exists."
+    }
+  ],
+  "supportPolicyId": "devkit-manufacturer-first-support",
+  "warrantyPolicyId": "one-year-workmanship-devkit",
+  "offers": [
+    {
+      "id": "spare-propellers-thomas-texas",
+      "manufacturerId": "thomas-texas",
+      "checkoutGroupId": "thomas-store",
+      "status": "coming-soon",
+      "regionLabel": "United States",
+      "shipsFrom": "Texas, USA",
+      "shipsTo": ["US"],
+      "priceDisplay": "TBD",
+      "leadTimeDisplay": "TBD",
+      "paymentMethods": ["card", "usdc", "invoice"],
+      "checkout": {
+        "mode": "manufacturer-site",
+        "ctaLabel": "Add from Texas workshop",
+        "immediatePayment": true,
+        "customerNotice": "Checkout URL is TBD. This offer shares checkout group thomas-store with the Quiver DevKit."
+      },
+      "merchantOfRecordName": "TBD",
+      "daoFee": {
+        "type": "tbd",
+        "includedInPrice": true,
+        "remittance": "tbd"
+      },
+      "notes": "Placeholder item to validate multi-offer same-manufacturer carts."
+    }
+  ],
+  "tags": ["quiver", "spares", "propellers"],
+  "updatedAt": "2026-06-07"
+}

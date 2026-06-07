@@ -1,0 +1,16 @@
+{
+  "id": "julius-germany",
+  "displayName": "Julius / Germany Workshop",
+  "companyName": "TBD",
+  "regionLabel": "Germany / EU",
+  "countryCode": "DE",
+  "approved": true,
+  "approvalStatus": "trusted-mvp",
+  "merchantOfRecord": {
+    "legalName": "TBD",
+    "jurisdiction": "Germany / EU"
+  },
+  "paymentCapabilities": ["card", "usdc", "invoice"],
+  "shipsFrom": ["Germany"],
+  "notes": "Trusted MVP manufacturer for initial Quiver parts, PCBs, or EU fulfillment. Company/payment details are placeholders until confirmed."
+}

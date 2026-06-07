@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Arrow-air/arrow-catalog/catalog/schema/checkout-group.schema.json",
+  "title": "Arrow Catalog Checkout Group",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "manufacturerId",
+    "mode",
+    "supportsMultipleItems",
+    "supportsQuantities",
+    "supportedPaymentMethods",
+    "merchantOfRecordName",
+    "immediatePayment"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "manufacturerId": { "type": "string" },
+    "mode": {
+      "type": "string",
+      "enum": ["external-cart", "external-payment-link", "manufacturer-site", "embedded-checkout", "crypto-checkout", "quote-form"]
+    },
+    "supportsMultipleItems": { "type": "boolean" },
+    "supportsQuantities": { "type": "boolean" },
+    "supportedPaymentMethods": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["card", "usdc", "bank-transfer", "wire", "crypto-other", "invoice"] }
+    },
+    "baseUrl": { "type": "string" },
+    "merchantOfRecordName": { "type": "string" },
+    "immediatePayment": { "type": "boolean" },
+    "notes": { "type": "string" }
+  }
+}

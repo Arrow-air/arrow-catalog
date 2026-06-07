@@ -1,0 +1,11 @@
+{
+  "id": "thomas-store",
+  "manufacturerId": "thomas-texas",
+  "mode": "external-cart",
+  "supportsMultipleItems": true,
+  "supportsQuantities": true,
+  "supportedPaymentMethods": ["card", "usdc", "invoice"],
+  "merchantOfRecordName": "TBD",
+  "immediatePayment": true,
+  "notes": "Placeholder for Thomas/Texas self-serve checkout. Should support immediate payment for standard catalog items."
+}

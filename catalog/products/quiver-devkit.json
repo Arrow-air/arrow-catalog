@@ -1,0 +1,106 @@
+{
+  "id": "quiver-devkit-v0",
+  "slug": "quiver-devkit",
+  "name": "Quiver DevKit",
+  "subtitle": "Arrow-sanctioned open-source VTOL development kit",
+  "category": "aircraft-devkit",
+  "status": "limited-availability",
+  "lifecycleStage": "devkit",
+  "shortDescription": "A developer-focused Quiver kit for builders who want to test, modify, and extend Arrow's open-source VTOL platform.",
+  "longDescription": "The Quiver DevKit is the first MVP catalog item for AIP-009-style manufacturing. This entry intentionally starts as limited availability while Arrow confirms kit contents, pricing, checkout links, and manufacturer-specific lead times.",
+  "intendedAudience": "Experienced drone builders, developers, researchers, and experimental aircraft contributors.",
+  "safetyNotice": "This is a developer kit, not a consumer drone. Buyers are responsible for safe assembly, inspection, operation, and regulatory compliance.",
+  "included": [
+    {
+      "label": "Quiver DevKit components",
+      "notes": "TBD: replace with exact kit contents before public launch."
+    },
+    {
+      "label": "Arrow-sanctioned build standard",
+      "notes": "Manufactured to the linked Quiver manufacturing guide and related standards."
+    }
+  ],
+  "notIncluded": [
+    {
+      "label": "TBD batteries, charger, radio, payloads, or other field equipment",
+      "notes": "Confirm before public launch."
+    }
+  ],
+  "requiredSeparately": [],
+  "standards": [
+    {
+      "id": "quiver-manufacturing-guide",
+      "label": "Quiver Manufacturing Guide",
+      "url": "https://www.arrowair.com/quiver/Manufacturing/Manufacturing-Guide",
+      "kind": "manufacturing-guide",
+      "required": true,
+      "description": "Primary build standard for Arrow-sanctioned Quiver DevKits."
+    }
+  ],
+  "supportPolicyId": "devkit-manufacturer-first-support",
+  "warrantyPolicyId": "one-year-workmanship-devkit",
+  "offers": [
+    {
+      "id": "quiver-devkit-thomas-texas",
+      "manufacturerId": "thomas-texas",
+      "checkoutGroupId": "thomas-store",
+      "status": "limited-availability",
+      "regionLabel": "United States",
+      "shipsFrom": "Texas, USA",
+      "shipsTo": ["US"],
+      "priceDisplay": "TBD",
+      "leadTimeDisplay": "TBD",
+      "inventoryDisplay": "Limited MVP batch",
+      "paymentMethods": ["card", "usdc", "invoice"],
+      "checkout": {
+        "mode": "manufacturer-site",
+        "ctaLabel": "Buy from Texas workshop",
+        "immediatePayment": true,
+        "customerNotice": "Checkout URL is TBD. Payment will be accepted by the manufacturer as merchant of record."
+      },
+      "merchantOfRecordName": "TBD",
+      "daoFee": {
+        "type": "tbd",
+        "includedInPrice": true,
+        "remittance": "tbd",
+        "publicLabel": "Marketplace / standards coordination fee TBD"
+      },
+      "aip009": {
+        "catalogEntryId": "quiver-devkit-v0"
+      },
+      "notes": "Initial trusted MVP offer. Replace placeholder price, checkout URL, and merchant details before public launch."
+    },
+    {
+      "id": "quiver-devkit-julius-germany",
+      "manufacturerId": "julius-germany",
+      "checkoutGroupId": "julius-store",
+      "status": "waitlist",
+      "regionLabel": "Europe",
+      "shipsFrom": "Germany",
+      "shipsTo": ["EU"],
+      "priceDisplay": "TBD",
+      "leadTimeDisplay": "TBD",
+      "inventoryDisplay": "TBD",
+      "paymentMethods": ["card", "usdc", "invoice"],
+      "checkout": {
+        "mode": "manufacturer-site",
+        "ctaLabel": "Buy from Germany workshop",
+        "immediatePayment": true,
+        "customerNotice": "Checkout URL is TBD. Payment will be accepted by the manufacturer as merchant of record."
+      },
+      "merchantOfRecordName": "TBD",
+      "daoFee": {
+        "type": "tbd",
+        "includedInPrice": true,
+        "remittance": "tbd",
+        "publicLabel": "Marketplace / standards coordination fee TBD"
+      },
+      "aip009": {
+        "catalogEntryId": "quiver-devkit-v0"
+      },
+      "notes": "Placeholder EU offer for model validation; confirm scope with Julius before public launch."
+    }
+  ],
+  "tags": ["quiver", "devkit", "aip-009"],
+  "updatedAt": "2026-06-07"
+}

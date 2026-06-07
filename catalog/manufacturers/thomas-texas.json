@@ -1,0 +1,16 @@
+{
+  "id": "thomas-texas",
+  "displayName": "Thomas / Texas Workshop",
+  "companyName": "TBD",
+  "regionLabel": "Texas, USA",
+  "countryCode": "US",
+  "approved": true,
+  "approvalStatus": "trusted-mvp",
+  "merchantOfRecord": {
+    "legalName": "TBD",
+    "jurisdiction": "Texas, USA"
+  },
+  "paymentCapabilities": ["card", "usdc", "invoice"],
+  "shipsFrom": ["Texas, USA"],
+  "notes": "Trusted MVP manufacturer for initial Quiver DevKit sales. Company/payment details are placeholders until confirmed."
+}
