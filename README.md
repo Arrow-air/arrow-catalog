@@ -77,6 +77,8 @@ Fields that should stay out of the catalog:
 - launch pages, demos, animations, or narrative sections
 - website-only UI decisions
 
+This boundary keeps governance focused on canonical product/manufacturer/offer facts. Marketing copy and rich website content can iterate quickly in the website repo without treating every wording tweak as a catalog/governance change.
+
 The website can generate ordinary product pages from catalog data for small parts/accessories, and custom MDX/React pages can reference catalog entries for flagship products.
 
 For the first website integration, a simple build-time import/export is enough:
