@@ -55,16 +55,21 @@ Full JSON Schema validation can be added later once the repo has a package/tooli
 
 ## Storefront integration
 
-The catalog is not intended to be the full website CMS. It should hold canonical DAO/protocol/store data: products, offers, manufacturers, checkout groups, standards, policies, and future AIP-009 metadata.
+The catalog is not intended to be the full website CMS, but it should contain enough structured data for the website to generate ordinary storefront pages automatically.
 
-The website should own richer presentation: images, custom landing pages, long-form product copy, layout, demos, and interactive UI. Website pages can reference catalog entries by product ID and use catalog data for prices/offers/checkout/status.
+Use a two-tier model:
+
+1. **Generated catalog pages** for normal items, small parts, accessories, and replacement components. These pages can render directly from catalog fields such as name, category, short description, standards, offers, manufacturers, availability, price display, and checkout links.
+2. **Custom website pages** for flagship products or launches that need richer storytelling, images, demos, layout, and long-form copy. These pages should reference catalog entries by product ID and pull live structured data such as offers/status/checkout options from the catalog.
+
+So the catalog should hold canonical DAO/protocol/store data plus enough basic presentation metadata for generated pages. The website should own custom page composition and rich media.
 
 For the first website integration, a simple build-time import/export is enough:
 
 1. Read catalog JSON and policy markdown from this repo.
 2. Validate it.
-3. Use catalog data for `/store` cards, offer availability, manufacturer options, and checkout handoff.
-4. Let website MDX/React own rich product pages, media, and custom storytelling.
+3. Use catalog data for `/store` cards, generated item pages, offer availability, manufacturer options, and checkout handoff.
+4. Let website MDX/React optionally override or extend generated pages for major products.
 5. Route customers to manufacturer-owned checkout links.
 
 ## AIP-009 direction
