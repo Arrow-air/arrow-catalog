@@ -55,14 +55,17 @@ Full JSON Schema validation can be added later once the repo has a package/tooli
 
 ## Storefront integration
 
-The website should treat this repository as the canonical catalog source and render from a pinned revision or generated artifact.
+The catalog is not intended to be the full website CMS. It should hold canonical DAO/protocol/store data: products, offers, manufacturers, checkout groups, standards, policies, and future AIP-009 metadata.
+
+The website should own richer presentation: images, custom landing pages, long-form product copy, layout, demos, and interactive UI. Website pages can reference catalog entries by product ID and use catalog data for prices/offers/checkout/status.
 
 For the first website integration, a simple build-time import/export is enough:
 
 1. Read catalog JSON and policy markdown from this repo.
 2. Validate it.
-3. Render `/store`, product pages, manufacturer cards, and support/warranty pages.
-4. Route customers to manufacturer-owned checkout links.
+3. Use catalog data for `/store` cards, offer availability, manufacturer options, and checkout handoff.
+4. Let website MDX/React own rich product pages, media, and custom storytelling.
+5. Route customers to manufacturer-owned checkout links.
 
 ## AIP-009 direction
 

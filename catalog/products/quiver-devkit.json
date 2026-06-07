@@ -2,14 +2,10 @@
   "id": "quiver-devkit-v0",
   "slug": "quiver-devkit",
   "name": "Quiver DevKit",
-  "subtitle": "Arrow-sanctioned open-source VTOL development kit",
   "category": "aircraft-devkit",
   "status": "limited-availability",
   "lifecycleStage": "devkit",
   "shortDescription": "A developer-focused Quiver kit for builders who want to test, modify, and extend Arrow's open-source VTOL platform.",
-  "longDescription": "The Quiver DevKit is the first MVP catalog item for AIP-009-style manufacturing. This entry intentionally starts as limited availability while Arrow confirms kit contents, pricing, checkout links, and manufacturer-specific lead times.",
-  "intendedAudience": "Experienced drone builders, developers, researchers, and experimental aircraft contributors.",
-  "safetyNotice": "This is a developer kit, not a consumer drone. Buyers are responsible for safe assembly, inspection, operation, and regulatory compliance.",
   "included": [
     {
       "label": "Quiver DevKit components",
@@ -47,11 +43,17 @@
       "status": "limited-availability",
       "regionLabel": "United States",
       "shipsFrom": "Texas, USA",
-      "shipsTo": ["US"],
+      "shipsTo": [
+        "US"
+      ],
       "priceDisplay": "TBD",
       "leadTimeDisplay": "TBD",
       "inventoryDisplay": "Limited MVP batch",
-      "paymentMethods": ["card", "usdc", "invoice"],
+      "paymentMethods": [
+        "card",
+        "usdc",
+        "invoice"
+      ],
       "checkout": {
         "mode": "manufacturer-site",
         "ctaLabel": "Buy from Texas workshop",
@@ -77,11 +79,17 @@
       "status": "waitlist",
       "regionLabel": "Europe",
       "shipsFrom": "Germany",
-      "shipsTo": ["EU"],
+      "shipsTo": [
+        "EU"
+      ],
       "priceDisplay": "TBD",
       "leadTimeDisplay": "TBD",
       "inventoryDisplay": "TBD",
-      "paymentMethods": ["card", "usdc", "invoice"],
+      "paymentMethods": [
+        "card",
+        "usdc",
+        "invoice"
+      ],
       "checkout": {
         "mode": "manufacturer-site",
         "ctaLabel": "Buy from Germany workshop",
@@ -101,6 +109,10 @@
       "notes": "Placeholder EU offer for model validation; confirm scope with Julius before public launch."
     }
   ],
-  "tags": ["quiver", "devkit", "aip-009"],
+  "tags": [
+    "quiver",
+    "devkit",
+    "aip-009"
+  ],
   "updatedAt": "2026-06-07"
 }

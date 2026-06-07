@@ -2,14 +2,10 @@
   "id": "quiver-spare-propellers-v0",
   "slug": "quiver-spare-propellers",
   "name": "Quiver Spare Propellers",
-  "subtitle": "Spare propeller set for Quiver DevKit operators",
   "category": "part",
   "status": "coming-soon",
   "lifecycleStage": "devkit",
   "shortDescription": "A placeholder spare-parts catalog item used to validate same-manufacturer cart behavior.",
-  "longDescription": "This entry is intentionally minimal. It exists so the catalog can model buying a Quiver DevKit and spare parts from the same manufacturer in one checkout.",
-  "intendedAudience": "Quiver DevKit builders and operators.",
-  "safetyNotice": "Use only propellers that match the documented Quiver configuration and inspect before flight.",
   "included": [
     {
       "label": "Spare propeller set",
@@ -38,10 +34,16 @@
       "status": "coming-soon",
       "regionLabel": "United States",
       "shipsFrom": "Texas, USA",
-      "shipsTo": ["US"],
+      "shipsTo": [
+        "US"
+      ],
       "priceDisplay": "TBD",
       "leadTimeDisplay": "TBD",
-      "paymentMethods": ["card", "usdc", "invoice"],
+      "paymentMethods": [
+        "card",
+        "usdc",
+        "invoice"
+      ],
       "checkout": {
         "mode": "manufacturer-site",
         "ctaLabel": "Add from Texas workshop",
@@ -57,6 +59,10 @@
       "notes": "Placeholder item to validate multi-offer same-manufacturer carts."
     }
   ],
-  "tags": ["quiver", "spares", "propellers"],
+  "tags": [
+    "quiver",
+    "spares",
+    "propellers"
+  ],
   "updatedAt": "2026-06-07"
 }
