@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/Arrow-air/arrow-catalog/catalog/schema/product.schema.json",
   "title": "Arrow Catalog Product",
-  "description": "Lightweight guardrail schema for canonical catalog entries. Rich website page content should live in the website repo.",
+  "description": "Lightweight guardrail schema for canonical catalog entries that could plausibly become AIP-009 on-chain catalog records. Rich website page content should live in the website repo.",
   "type": "object",
   "additionalProperties": true,
   "required": [

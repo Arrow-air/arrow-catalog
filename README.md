@@ -55,14 +55,29 @@ Full JSON Schema validation can be added later once the repo has a package/tooli
 
 ## Storefront integration
 
-The catalog is not intended to be the full website CMS, but it should contain enough structured data for the website to generate ordinary storefront pages automatically.
+Think of catalog JSON as the data that could plausibly become an AIP-009 on-chain catalog record or an input to one. If a field would make sense in a DAO-governed product/manufacturer/offer registry, it probably belongs here. If it is website layout, storytelling, or page composition, it belongs in the website repo.
 
-Use a two-tier model:
+Good catalog fields include:
 
-1. **Generated catalog pages** for normal items, small parts, accessories, and replacement components. These pages can render directly from catalog fields such as name, category, short description, standards, offers, manufacturers, availability, price display, and checkout links.
-2. **Custom website pages** for flagship products or launches that need richer storytelling, images, demos, layout, and long-form copy. These pages should reference catalog entries by product ID and pull live structured data such as offers/status/checkout options from the catalog.
+- product name, category, status, and short description
+- standards/manufacturing-guide links
+- manufacturer offers and checkout groups
+- price or price display
+- availability, lead time, and ship-from/ship-to metadata
+- merchant-of-record and payment metadata
+- support/warranty policy references
+- basic image/media URLs that identify the item
+- future bond, fee, commission, reputation, or on-chain metadata
 
-So the catalog should hold canonical DAO/protocol/store data plus enough basic presentation metadata for generated pages. The website should own custom page composition and rich media.
+Fields that should stay out of the catalog:
+
+- custom page layouts
+- long-form marketing copy
+- image galleries as presentation experiences
+- launch pages, demos, animations, or narrative sections
+- website-only UI decisions
+
+The website can generate ordinary product pages from catalog data for small parts/accessories, and custom MDX/React pages can reference catalog entries for flagship products.
 
 For the first website integration, a simple build-time import/export is enough:
 
