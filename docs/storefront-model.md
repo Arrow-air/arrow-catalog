@@ -1,6 +1,6 @@
 # Storefront model
 
-The Arrow website should use the catalog as structured store/protocol data, not as a one-page-per-SKU CMS.
+The independent Arrow Store app should use the catalog as structured store/protocol data, not as a one-page-per-SKU CMS.
 
 ## Page types
 
@@ -27,7 +27,7 @@ Route example: `/store/quiver-devkit`
 Purpose:
 
 - custom page for a major product
-- rich website-owned copy, media, safety/disclaimer presentation, and explanation
+- rich store-owned copy, media, safety/disclaimer presentation, and explanation
 - catalog-backed order builder
 
 The Quiver page should not be a single static SKU. It should be a configured cart builder:
@@ -41,7 +41,7 @@ The Quiver page should not be a single static SKU. It should be a configured car
    - spare cables
    - attachment kits
 3. Customer selects optional add-ons and quantities.
-4. Website builds a manufacturer-scoped cart from selected offer IDs.
+4. Store builds a manufacturer-scoped cart from selected offer IDs.
 5. Customer checks out through that manufacturer's checkout group.
 
 MVP rule: one checkout equals one manufacturer merchant of record. If selected items come from different manufacturers, split into separate checkouts or prevent that combination until routing is solved.
@@ -56,7 +56,7 @@ Route examples:
 
 Purpose:
 
-- small parts and accessories should not need custom website pages
+- small parts and accessories should not need custom store pages
 - render automatically from catalog fields
 - show offers, compatibility, standards links, and checkout buttons
 
@@ -111,7 +111,7 @@ Possible roles:
 
 ### Option groups
 
-Used by the website to render sections on a configurator page.
+Used by the store app to render sections on a configurator page.
 
 Example for a Quiver DevKit page:
 
@@ -132,13 +132,13 @@ Example for a Quiver DevKit page:
 ]
 ```
 
-This may live in the catalog if it is considered canonical product packaging/offer structure. If it becomes mostly UI/presentation, it can live in the website and reference catalog product IDs.
+This may live in the catalog if it is considered canonical product packaging/offer structure. If it becomes mostly UI/presentation, it can live in the store app and reference catalog product IDs.
 
 ### Images/media
 
 Basic product image URLs are appropriate in the catalog because they identify the item and help generated pages.
 
-Richer galleries, launch visuals, animations, and page-specific media treatment should live in the website repo.
+Richer galleries, launch visuals, animations, and page-specific media treatment should live in the store app repo.
 
 Example:
 
@@ -148,9 +148,9 @@ Example:
 }
 ```
 
-## Recommended MVP website behavior
+## Recommended MVP store behavior
 
-1. Build a custom Quiver DevKit page in the website repo.
+1. Build a custom Quiver DevKit page in the store app repo.
 2. Pull base Quiver offers from the catalog.
 3. Pull compatible optional add-ons from the catalog by `compatibleWith` and/or explicit option groups.
 4. Let customers select add-ons and quantities.
@@ -161,4 +161,4 @@ Example:
 ## Mental model
 
 - Catalog repo answers: what products/offers/manufacturers exist, how they relate, and what could later be DAO-governed/on-chain.
-- Website repo answers: how customers experience, understand, configure, and buy those products.
+- Store app answers: how customers experience, understand, configure, and buy those products.

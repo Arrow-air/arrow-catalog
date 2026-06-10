@@ -2,7 +2,7 @@
 
 Canonical catalog data for Arrow products, manufacturers, offers, checkout groups, and AIP-009 manufacturing protocol metadata.
 
-This repository is the v0 source of truth for Arrow's hybrid manufacturing storefront. The website can consume this catalog to render product/store pages, while catalog changes remain reviewable through GitHub PRs and can later be connected to DAO governance or on-chain AIP-009 catalog publishing.
+This repository is the v0 source of truth for Arrow's hybrid manufacturing storefront. The independent Arrow Store app at `store.arrowair.com` can consume this catalog to render product/store pages, while catalog changes remain reviewable through GitHub PRs and can later be connected to DAO governance or on-chain AIP-009 catalog publishing.
 
 ## Current status
 
@@ -43,6 +43,12 @@ scripts/
   validate-catalog.py
 ```
 
+## Planning documents
+
+- `docs/arrow-store-roadmap.md` — roadmap and development plan for the independent `store.arrowair.com` app.
+- `docs/arrow-store-developer-brief.md` — Arrow/AIP-009 onboarding context for developers who are new to the project.
+- `docs/storefront-model.md` — catalog-driven store page and configurator model.
+
 ## Validate locally
 
 ```bash
@@ -77,17 +83,17 @@ Fields that should stay out of the catalog:
 - launch pages, demos, animations, or narrative sections
 - website-only UI decisions
 
-This boundary keeps governance focused on canonical product/manufacturer/offer facts. Marketing copy and rich website content can iterate quickly in the website repo without treating every wording tweak as a catalog/governance change.
+This boundary keeps governance focused on canonical product/manufacturer/offer facts. Marketing copy, page composition, and rich storefront content can iterate quickly in the store app without treating every wording tweak as a catalog/governance change.
 
-The website can generate ordinary product pages from catalog data for small parts/accessories, and custom MDX/React pages can reference catalog entries for flagship products.
+The store app can generate ordinary product pages from catalog data for small parts/accessories, and custom React/MDX pages can reference catalog entries for flagship products.
 
-For the first website integration, a simple build-time import/export is enough:
+For the first store integration, a simple build-time import/export is enough:
 
 1. Read catalog JSON and policy markdown from this repo.
 2. Validate it.
-3. Use catalog data for `/store` cards, generated item pages, offer availability, manufacturer options, and checkout handoff.
-4. Let website MDX/React optionally override or extend generated pages for major products.
-5. Route customers to manufacturer-owned checkout links.
+3. Use catalog data for store cards, generated item pages, offer availability, manufacturer options, and checkout handoff.
+4. Let store-owned React/MDX optionally override or extend generated pages for major products.
+5. Route customers to manufacturer-owned checkout links or manufacturer invoice/payment flows.
 
 ## AIP-009 direction
 
