@@ -1,10 +1,17 @@
 AIP
+arrowair
+configurator
 DevKit
 devkit
+devkits
 Docusaurus
+helpdesk
 Julius
 Quiver
 Stripe
+Supabase
+typecheck
 USDC
+waitlist
 onchain
 workmanship
