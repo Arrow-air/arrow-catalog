@@ -52,7 +52,7 @@ scripts/
 ## Validate locally
 
 ```bash
-make validate
+python3 scripts/validate-catalog.py
 ```
 
 The validator intentionally uses only the Python standard library. It checks malformed JSON, required top-level fields, duplicate IDs, and cross-references between products, manufacturers, checkout groups, and policies.

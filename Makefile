@@ -1,5 +1,14 @@
-include .make/base.mk
+## DO NOT EDIT!
+# This file was provisioned by Terraform
+# File origin: https://github.com/Arrow-air/tf-github/tree/main/src/templates/all/Makefile
 
-.PHONY: validate
-validate:
-	python3 scripts/validate-catalog.py
+DOCKER_NAME := arrow-arrow-catalog
+
+help: .help-base .help-cspell .help-markdown .help-editorconfig
+
+include .make/base.mk
+include .make/cspell.mk
+include .make/markdown.mk
+include .make/editorconfig.mk
+
+test: cspell-test md-test-links editorconfig-test
