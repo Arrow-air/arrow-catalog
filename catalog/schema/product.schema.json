@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Arrow-air/arrow-catalog/catalog/schema/product.schema.json",
+  "title": "Arrow Catalog Product",
+  "description": "Lightweight guardrail schema for canonical catalog entries that could plausibly become AIP-009 on-chain catalog records. Rich website page content should live in the website repo.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "id",
+    "slug",
+    "name",
+    "category",
+    "status",
+    "shortDescription",
+    "standards",
+    "supportPolicyId",
+    "warrantyPolicyId",
+    "offers",
+    "updatedAt"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "slug": { "type": "string" },
+    "name": { "type": "string" },
+    "category": {
+      "type": "string",
+      "enum": ["aircraft-devkit", "part", "pcb", "attachment", "tooling", "service"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["available", "limited-availability", "quote-required", "waitlist", "coming-soon", "out-of-stock"]
+    },
+    "lifecycleStage": {
+      "type": "string",
+      "enum": ["devkit", "beta", "production", "deprecated"]
+    },
+    "shortDescription": { "type": "string" },
+    "included": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/lineItem" }
+    },
+    "notIncluded": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/lineItem" }
+    },
+    "requiredSeparately": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/lineItem" }
+    },
+    "standards": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/standard" }
+    },
+    "supportPolicyId": { "type": "string" },
+    "warrantyPolicyId": { "type": "string" },
+    "offers": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/offer" }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "updatedAt": { "type": "string", "format": "date" }
+  },
+  "$defs": {
+    "lineItem": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["label"],
+      "properties": {
+        "label": { "type": "string" },
+        "quantity": { "type": ["number", "string"] },
+        "notes": { "type": "string" }
+      }
+    },
+    "standard": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["id", "label", "url", "kind", "required"],
+      "properties": {
+        "id": { "type": "string" },
+        "label": { "type": "string" },
+        "url": { "type": "string" },
+        "kind": { "type": "string" },
+        "required": { "type": "boolean" }
+      }
+    },
+    "offer": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["id", "manufacturerId", "checkoutGroupId", "status", "checkout"],
+      "properties": {
+        "id": { "type": "string" },
+        "manufacturerId": { "type": "string" },
+        "checkoutGroupId": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": ["available", "limited-availability", "waitlist", "quote-required", "out-of-stock", "hidden", "coming-soon"]
+        },
+        "priceDisplay": { "type": "string" },
+        "paymentMethods": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "checkout": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["mode", "ctaLabel", "immediatePayment"],
+          "properties": {
+            "mode": { "type": "string" },
+            "ctaLabel": { "type": "string" },
+            "url": { "type": "string" },
+            "immediatePayment": { "type": "boolean" }
+          }
+        }
+      }
+    }
+  }
+}

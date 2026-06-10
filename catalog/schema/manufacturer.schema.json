@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Arrow-air/arrow-catalog/catalog/schema/manufacturer.schema.json",
+  "title": "Arrow Catalog Manufacturer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "displayName",
+    "companyName",
+    "regionLabel",
+    "countryCode",
+    "approved",
+    "approvalStatus",
+    "merchantOfRecord",
+    "paymentCapabilities",
+    "shipsFrom"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "displayName": { "type": "string" },
+    "companyName": { "type": "string" },
+    "regionLabel": { "type": "string" },
+    "countryCode": { "type": "string" },
+    "website": { "type": "string" },
+    "supportEmail": { "type": "string" },
+    "supportUrl": { "type": "string" },
+    "approved": { "type": "boolean" },
+    "approvalStatus": {
+      "type": "string",
+      "enum": ["trusted-mvp", "approved", "paused", "removed"]
+    },
+    "merchantOfRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["legalName", "jurisdiction"],
+      "properties": {
+        "legalName": { "type": "string" },
+        "jurisdiction": { "type": "string" },
+        "termsUrl": { "type": "string" },
+        "privacyUrl": { "type": "string" }
+      }
+    },
+    "paymentCapabilities": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["card", "usdc", "bank-transfer", "wire", "crypto-other", "invoice"] }
+    },
+    "shipsFrom": { "type": "array", "items": { "type": "string" } },
+    "notes": { "type": "string" }
+  }
+}

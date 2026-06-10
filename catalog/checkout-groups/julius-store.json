@@ -1,0 +1,11 @@
+{
+  "id": "julius-store",
+  "manufacturerId": "julius-germany",
+  "mode": "external-cart",
+  "supportsMultipleItems": true,
+  "supportsQuantities": true,
+  "supportedPaymentMethods": ["card", "usdc", "invoice"],
+  "merchantOfRecordName": "TBD",
+  "immediatePayment": true,
+  "notes": "Placeholder for Julius/Germany self-serve checkout. Should support immediate payment for standard catalog items."
+}
