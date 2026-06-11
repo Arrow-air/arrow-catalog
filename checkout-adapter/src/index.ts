@@ -9,7 +9,15 @@
 // customer PII. Each manufacturer deploys their own instance.
 
 import { loadOffers } from './catalog.ts';
-import { buildSessionForm, HandoffError, parseItems, parseRef, priceLineItems } from './checkout.ts';
+import {
+  buildSessionForm,
+  HandoffError,
+  parseAllowedOrigins,
+  parseItems,
+  parseRef,
+  priceLineItems,
+  resolveReturnUrl,
+} from './checkout.ts';
 
 export interface Env {
   STRIPE_SECRET_KEY: string;
@@ -18,6 +26,8 @@ export interface Env {
   CATALOG_REF: string;
   SUCCESS_URL: string;
   CANCEL_URL: string;
+  /** Comma-separated origins allowed in `return`/`cancel` params. */
+  ALLOWED_RETURN_ORIGINS?: string;
 }
 
 export default {
@@ -40,9 +50,20 @@ export default {
     try {
       const items = parseItems(url.searchParams.get('items'));
       const ref = parseRef(url.searchParams.get('ref'));
+      const allowedOrigins = parseAllowedOrigins(env.ALLOWED_RETURN_ORIGINS);
+      const successUrl = resolveReturnUrl(
+        url.searchParams.get('return'),
+        allowedOrigins,
+        env.SUCCESS_URL,
+      );
+      const cancelUrl = resolveReturnUrl(
+        url.searchParams.get('cancel'),
+        allowedOrigins,
+        env.CANCEL_URL,
+      );
       const offers = await loadOffers(env.CATALOG_REPO, env.CATALOG_REF);
       const lines = priceLineItems(offers, items, env.MANUFACTURER_ID);
-      const form = buildSessionForm(lines, ref, env.SUCCESS_URL, env.CANCEL_URL);
+      const form = buildSessionForm(lines, ref, successUrl, cancelUrl);
 
       const stripe = await fetch('https://api.stripe.com/v1/checkout/sessions', {
         method: 'POST',

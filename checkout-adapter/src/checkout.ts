@@ -71,6 +71,34 @@ export function parseRef(raw: string | null): string {
 }
 
 /**
+ * Resolve a frontend-supplied return/cancel URL against the manufacturer's
+ * origin allowlist; anything absent, malformed, or off-list falls back to the
+ * configured default. Prevents the handoff becoming an open redirect.
+ */
+export function resolveReturnUrl(
+  raw: string | null,
+  allowedOrigins: readonly string[],
+  fallback: string,
+): string {
+  if (!raw) return fallback;
+  try {
+    const url = new URL(raw);
+    if (allowedOrigins.includes(url.origin)) return url.toString();
+  } catch {
+    // malformed URL — fall through to the default
+  }
+  return fallback;
+}
+
+/** Parse the ALLOWED_RETURN_ORIGINS env var (comma-separated origins). */
+export function parseAllowedOrigins(raw: string | undefined): string[] {
+  return (raw ?? '')
+    .split(',')
+    .map((origin) => origin.trim().replace(/\/$/, ''))
+    .filter(Boolean);
+}
+
+/**
  * Resolve requested items against the canonical catalog. The catalog — never
  * the request — decides what is sellable and at what price.
  */
