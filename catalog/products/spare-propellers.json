@@ -39,6 +39,10 @@
         "US"
       ],
       "priceDisplay": "$19.99 USD each",
+      "price": {
+        "amount": 1999,
+        "currency": "USD"
+      },
       "leadTimeDisplay": "Ships in 3 business days",
       "paymentMethods": [
         "card",

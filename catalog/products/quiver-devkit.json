@@ -73,6 +73,10 @@
         "US"
       ],
       "priceDisplay": "$4,900 USD",
+      "price": {
+        "amount": 490000,
+        "currency": "USD"
+      },
       "leadTimeDisplay": "Ships in 3 business days while stock lasts; built to order after that",
       "inventoryDisplay": "Limited MVP batch in stock",
       "paymentMethods": [
