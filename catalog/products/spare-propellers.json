@@ -1,15 +1,16 @@
 {
   "id": "quiver-spare-propellers-v0",
   "slug": "quiver-spare-propellers",
-  "name": "Quiver Spare Propellers",
+  "name": "Quiver Spare Propeller (XRotor MFP 2480)",
   "category": "part",
-  "status": "coming-soon",
+  "status": "available",
   "lifecycleStage": "devkit",
-  "shortDescription": "A placeholder spare-parts catalog item used to validate same-manufacturer cart behavior.",
+  "shortDescription": "Genuine Hobbywing XRotor MFP 2480 replacement propeller for the Quiver DevKit, available in CW and CCW.",
   "included": [
     {
-      "label": "Spare propeller set",
-      "notes": "TBD: exact propeller model, handedness, and quantity."
+      "label": "Hobbywing XRotor MFP 2480 propeller",
+      "quantity": 1,
+      "notes": "Specify CW or CCW (and how many of each) in the order notes at checkout."
     }
   ],
   "notIncluded": [],
@@ -31,14 +32,18 @@
       "id": "spare-propellers-thomas-texas",
       "manufacturerId": "thomas-texas",
       "checkoutGroupId": "thomas-store",
-      "status": "coming-soon",
+      "status": "available",
       "regionLabel": "United States",
       "shipsFrom": "Texas, USA",
       "shipsTo": [
         "US"
       ],
-      "priceDisplay": "TBD",
-      "leadTimeDisplay": "TBD",
+      "priceDisplay": "$19.99 USD each",
+      "price": {
+        "amount": 1999,
+        "currency": "USD"
+      },
+      "leadTimeDisplay": "Ships in 3 business days",
       "paymentMethods": [
         "card",
         "usdc",
@@ -46,17 +51,12 @@
       ],
       "checkout": {
         "mode": "manufacturer-site",
-        "ctaLabel": "Add from Texas workshop",
+        "ctaLabel": "Add from Javelina Propeller Laboratory",
         "immediatePayment": true,
-        "customerNotice": "Checkout URL is TBD. This offer shares checkout group thomas-store with the Quiver DevKit."
+        "customerNotice": "Matches Hobbywing retail pricing. Shares a checkout with the Quiver DevKit, so spares can ship in the same order."
       },
-      "merchantOfRecordName": "TBD",
-      "daoFee": {
-        "type": "tbd",
-        "includedInPrice": true,
-        "remittance": "tbd"
-      },
-      "notes": "Placeholder item to validate multi-offer same-manufacturer carts."
+      "merchantOfRecordName": "Javelina Propeller Laboratory LLC",
+      "notes": "Pass-through retail part sold at Hobbywing list price; no DAO fee is proposed on pass-through parts."
     }
   ],
   "tags": [
@@ -64,5 +64,5 @@
     "spares",
     "propellers"
   ],
-  "updatedAt": "2026-06-07"
+  "updatedAt": "2026-06-11"
 }

@@ -8,8 +8,21 @@
   "shortDescription": "A developer-focused Quiver kit for builders who want to test, modify, and extend Arrow's open-source VTOL platform.",
   "included": [
     {
-      "label": "Quiver DevKit components",
-      "notes": "TBD: replace with exact kit contents before public launch."
+      "label": "Quiver airframe",
+      "notes": "CNC 6061 aluminum plates, carbon fiber arms and landing gear, busbars, and PETG-CF enclosure — built and tested to the Quiver Manufacturing Guide."
+    },
+    {
+      "label": "Propulsion set",
+      "quantity": 4,
+      "notes": "Hobbywing XRotor X6 Plus G2 motor/ESC/propeller sets, plus a spare propeller set (2 CW + 2 CCW)."
+    },
+    {
+      "label": "Avionics suite",
+      "notes": "Holybro Pix32 v6 flight controller, Raspberry Pi 5 (8 GB), H-RTK F9P and M9N GNSS, radar altimeter, SIYI A8 mini gimbal camera, SIYI HM30 FPV link, Remote ID module, and onboard Ethernet network."
+    },
+    {
+      "label": "Arrow PCB set",
+      "notes": "Assembled main, flight-controller, and battery-controller PCBs with full wiring harness."
     },
     {
       "label": "Arrow-sanctioned build standard",
@@ -18,11 +31,24 @@
   ],
   "notIncluded": [
     {
-      "label": "TBD batteries, charger, radio, payloads, or other field equipment",
-      "notes": "Confirm before public launch."
+      "label": "Payloads and optional sensors",
+      "notes": "Obstacle-avoidance lidar, forward radar, and a transport case are planned as optional add-ons."
     }
   ],
-  "requiredSeparately": [],
+  "requiredSeparately": [
+    {
+      "label": "Flight battery",
+      "notes": "14S LiPo, e.g. Tattu 14S 30,000 mAh."
+    },
+    {
+      "label": "Battery charger",
+      "notes": "High-power 14S-capable charger, e.g. SKYRC PC3000H."
+    },
+    {
+      "label": "RC transmitter and receiver",
+      "notes": "e.g. RadioMaster Boxer with compatible receiver."
+    }
+  ],
   "standards": [
     {
       "id": "quiver-manufacturing-guide",
@@ -46,9 +72,13 @@
       "shipsTo": [
         "US"
       ],
-      "priceDisplay": "TBD",
-      "leadTimeDisplay": "TBD",
-      "inventoryDisplay": "Limited MVP batch",
+      "priceDisplay": "$4,900 USD",
+      "price": {
+        "amount": 490000,
+        "currency": "USD"
+      },
+      "leadTimeDisplay": "Ships in 3 business days while stock lasts; built to order after that",
+      "inventoryDisplay": "Limited MVP batch in stock",
       "paymentMethods": [
         "card",
         "usdc",
@@ -56,21 +86,22 @@
       ],
       "checkout": {
         "mode": "manufacturer-site",
-        "ctaLabel": "Buy from Texas workshop",
+        "ctaLabel": "Buy from Javelina Propeller Laboratory",
         "immediatePayment": true,
-        "customerNotice": "Checkout URL is TBD. Payment will be accepted by the manufacturer as merchant of record."
+        "customerNotice": "Pay by card or USDC: JPL sends a Stripe invoice with your order confirmation. A direct online payment link is coming soon."
       },
-      "merchantOfRecordName": "TBD",
+      "merchantOfRecordName": "Javelina Propeller Laboratory LLC",
       "daoFee": {
-        "type": "tbd",
+        "type": "percent-of-gross",
+        "percent": 20,
         "includedInPrice": true,
-        "remittance": "tbd",
-        "publicLabel": "Marketplace / standards coordination fee TBD"
+        "remittance": "manual",
+        "publicLabel": "Includes 20% Arrow DAO support & marketplace fee"
       },
       "aip009": {
         "catalogEntryId": "quiver-devkit-v0"
       },
-      "notes": "Initial trusted MVP offer. Replace placeholder price, checkout URL, and merchant details before public launch."
+      "notes": "Initial trusted MVP offer. DAO fee percentage is proposed via this catalog entry and subject to DAO approval; expected to decrease as the program matures."
     },
     {
       "id": "quiver-devkit-julius-germany",
@@ -114,5 +145,5 @@
     "devkit",
     "aip-009"
   ],
-  "updatedAt": "2026-06-07"
+  "updatedAt": "2026-06-11"
 }

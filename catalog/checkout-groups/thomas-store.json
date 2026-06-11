@@ -5,7 +5,7 @@
   "supportsMultipleItems": true,
   "supportsQuantities": true,
   "supportedPaymentMethods": ["card", "usdc", "invoice"],
-  "merchantOfRecordName": "TBD",
+  "merchantOfRecordName": "Javelina Propeller Laboratory LLC",
   "immediatePayment": true,
-  "notes": "Placeholder for Thomas/Texas self-serve checkout. Should support immediate payment for standard catalog items."
+  "notes": "JPL self-serve checkout. Until the online payment link is live, JPL sends a Stripe invoice (card payment) with each order confirmation."
 }

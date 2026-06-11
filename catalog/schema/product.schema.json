@@ -99,6 +99,19 @@
           "enum": ["available", "limited-availability", "waitlist", "quote-required", "out-of-stock", "hidden", "coming-soon"]
         },
         "priceDisplay": { "type": "string" },
+        "price": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["amount", "currency"],
+          "properties": {
+            "amount": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Unit price in minor units (e.g. cents). Machine-readable counterpart to priceDisplay; required for automated checkout handoff (see docs/checkout-handoff.md)."
+            },
+            "currency": { "type": "string", "pattern": "^[A-Z]{3}$" }
+          }
+        },
         "paymentMethods": {
           "type": "array",
           "items": { "type": "string" }

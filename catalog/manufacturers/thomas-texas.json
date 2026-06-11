@@ -1,16 +1,16 @@
 {
   "id": "thomas-texas",
-  "displayName": "Thomas / Texas Workshop",
-  "companyName": "TBD",
+  "displayName": "Javelina Propeller Laboratory",
+  "companyName": "Javelina Propeller Laboratory LLC",
   "regionLabel": "Texas, USA",
   "countryCode": "US",
   "approved": true,
   "approvalStatus": "trusted-mvp",
   "merchantOfRecord": {
-    "legalName": "TBD",
+    "legalName": "Javelina Propeller Laboratory LLC",
     "jurisdiction": "Texas, USA"
   },
   "paymentCapabilities": ["card", "usdc", "invoice"],
   "shipsFrom": ["Texas, USA"],
-  "notes": "Trusted MVP manufacturer for initial Quiver DevKit sales. Company/payment details are placeholders until confirmed."
+  "notes": "Trusted MVP manufacturer for initial Quiver DevKit sales. Operated by Thomas Garrison."
 }
