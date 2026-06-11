@@ -6,6 +6,7 @@ DevKit
 devkit
 devkits
 Docusaurus
+GNSS
 helpdesk
 Hobbywing
 Holybro
