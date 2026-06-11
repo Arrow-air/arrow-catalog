@@ -1,0 +1,31 @@
+name: Checkout adapter
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "checkout-adapter/**"
+  pull_request:
+    paths:
+      - "checkout-adapter/**"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: checkout-adapter
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: checkout-adapter/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Typecheck
+        run: npm run check
+      - name: Test
+        run: npm test

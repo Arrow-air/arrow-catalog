@@ -91,7 +91,8 @@ checkout group per handoff, and MUST NOT treat a customer's return as proof of p
 
 ## Reference implementation
 
-`arrow-checkout-adapter` is a zero-dependency Cloudflare Worker any manufacturer can
-deploy with their own Stripe restricted key. Configuration is environment-only
-(manufacturer id, catalog repo/ref, success/cancel URLs, Stripe key) — the code contains
-no manufacturer specifics and resolves all prices from this catalog.
+[`checkout-adapter/`](../checkout-adapter/) in this repo is a zero-dependency Cloudflare
+Worker any manufacturer can deploy with their own Stripe restricted key. Configuration
+is environment-only (manufacturer id, catalog repo/ref, success/cancel URLs, Stripe
+key) — the code contains no manufacturer specifics and resolves all prices from this
+catalog.

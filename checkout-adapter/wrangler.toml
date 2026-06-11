@@ -1,0 +1,17 @@
+# Deploy with your own values: every manufacturer runs their own instance.
+name = "arrow-checkout-adapter"
+main = "src/index.ts"
+compatibility_date = "2026-06-01"
+
+[vars]
+# The manufacturer this instance sells for (catalog manufacturer id).
+MANUFACTURER_ID = "thomas-texas"
+# Canonical catalog to validate items and prices against.
+CATALOG_REPO = "Arrow-air/arrow-catalog"
+CATALOG_REF = "main"
+# Where Stripe sends the customer afterwards ({ref} is appended as ?ref=).
+SUCCESS_URL = "https://store.arrowair.com/orders/payment-complete"
+CANCEL_URL = "https://store.arrowair.com/cart"
+
+# Secret (never in this file): wrangler secret put STRIPE_SECRET_KEY
+# Use a RESTRICTED key with only Checkout Sessions write access.
