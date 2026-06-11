@@ -360,6 +360,35 @@ Acceptance criteria:
 - Export is usable for manual repayment to DAO.
 - Commitment hash exists for future audit anchoring.
 
+### Phase 4.5 — Commitment publication & shared spec
+
+Status: queued. Trigger: the first manufacturer fee remittance report to the DAO.
+
+A commitment hash only has value once it is (a) published somewhere the store cannot
+rewrite and (b) recomputable by parties other than the store. Until then the store
+accumulates hashes from order #1 (done in Phase 4) but they stay inert plumbing.
+
+Deliverables, in the same change set as the first remittance report:
+
+- Include each order's commitment hash in the manufacturer fee remittance report
+  published to the DAO (forum post, public repo commit, or similar append-only venue).
+- `docs/dao-fees.md` in this repo: fee type semantics (`percent-of-gross`), basis-point
+  conversion, and the exact rounding rule — so any implementation computes identical
+  obligations to the cent.
+- `docs/order-commitment.md` in this repo: canonical serialization (field order), the
+  salted contact-hash construction, and a hash version registry (current: v1; expect a
+  v2 when the on-chain design firms up).
+- Shared test vectors (JSON fixtures with known inputs and expected fee amounts and
+  hashes) that the store's CI — and any future implementation, including the eventual
+  settlement contract — verifies against.
+
+Acceptance criteria:
+
+- A third party can verify a published remittance report against the spec without
+  access to the store: recompute fee totals from disclosed order facts, and verify a
+  disclosed order + salt against its published commitment hash.
+- The store's hash/fee implementation passes the shared test vectors in CI.
+
 ### Phase 5 — Production hardening
 
 Deliverables:
