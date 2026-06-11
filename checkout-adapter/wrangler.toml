@@ -9,9 +9,14 @@ MANUFACTURER_ID = "thomas-texas"
 # Canonical catalog to validate items and prices against.
 CATALOG_REPO = "Arrow-air/arrow-catalog"
 CATALOG_REF = "main"
-# Where Stripe sends the customer afterwards ({ref} is appended as ?ref=).
+# Default post-payment destinations ({ref} is appended to the success URL).
+# Frontends usually override these per-request via the `return`/`cancel`
+# handoff params, validated against the allowlist below.
 SUCCESS_URL = "https://store.arrowair.com/orders/payment-complete"
 CANCEL_URL = "https://store.arrowair.com/cart"
+# Origins allowed in `return`/`cancel` params (open-redirect protection).
+# localhost is included for local frontend development against test mode.
+ALLOWED_RETURN_ORIGINS = "https://store.arrowair.com,http://localhost:4321"
 
 # Secret (never in this file): wrangler secret put STRIPE_SECRET_KEY
 # Use a RESTRICTED key with only Checkout Sessions write access.

@@ -38,6 +38,13 @@ by redirecting the customer to:
 - `ref` — an opaque order reference from the frontend (`[A-Za-z0-9_-]{1,64}`), e.g. an
   arrow-store order id. It binds the payment to the frontend's private order record and
   MUST NOT contain customer data.
+- `return` / `cancel` (optional) — absolute URLs the customer is sent to after a
+  successful or abandoned payment. This is what lets multiple frontends share one
+  manufacturer endpoint: each passes its own post-payment pages. To prevent open
+  redirects, the endpoint MUST validate both URLs against an explicit origin allowlist
+  configured by the manufacturer and fall back to its configured defaults on any
+  mismatch. The endpoint appends `ref` (and may append a payment session id) to the
+  `return` URL.
 
 Example:
 

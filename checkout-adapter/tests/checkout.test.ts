@@ -2,9 +2,11 @@ import { describe, expect, it } from 'vitest';
 import {
   buildSessionForm,
   HandoffError,
+  parseAllowedOrigins,
   parseItems,
   parseRef,
   priceLineItems,
+  resolveReturnUrl,
   type SellableOffer,
 } from '../src/checkout.ts';
 
@@ -126,5 +128,35 @@ describe('buildSessionForm', () => {
     );
     expect(form.get('line_items[0][price_data][unit_amount]')).toBe('490000');
     expect(form.get('line_items[1][quantity]')).toBe('2');
+  });
+});
+
+describe('resolveReturnUrl', () => {
+  const allowed = parseAllowedOrigins('https://store.arrowair.com, http://localhost:4321/');
+  const fallback = 'https://store.arrowair.com/orders/payment-complete';
+
+  it('accepts URLs on allowlisted origins', () => {
+    expect(
+      resolveReturnUrl('http://localhost:4321/orders/payment-complete', allowed, fallback),
+    ).toBe('http://localhost:4321/orders/payment-complete');
+    expect(resolveReturnUrl('https://store.arrowair.com/anywhere', allowed, fallback)).toBe(
+      'https://store.arrowair.com/anywhere',
+    );
+  });
+
+  it('falls back for foreign, malformed, or missing URLs (no open redirect)', () => {
+    expect(resolveReturnUrl('https://evil.example/phish', allowed, fallback)).toBe(fallback);
+    expect(resolveReturnUrl('https://store.arrowair.com.evil.example/x', allowed, fallback)).toBe(
+      fallback,
+    );
+    expect(resolveReturnUrl('//store.arrowair.com/x', allowed, fallback)).toBe(fallback);
+    expect(resolveReturnUrl('javascript:alert(1)', allowed, fallback)).toBe(fallback);
+    expect(resolveReturnUrl(null, allowed, fallback)).toBe(fallback);
+  });
+
+  it('falls back to defaults when no allowlist is configured', () => {
+    expect(
+      resolveReturnUrl('https://store.arrowair.com/x', parseAllowedOrigins(undefined), fallback),
+    ).toBe(fallback);
   });
 });
