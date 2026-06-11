@@ -4,8 +4,13 @@
   "mode": "external-cart",
   "supportsMultipleItems": true,
   "supportsQuantities": true,
-  "supportedPaymentMethods": ["card", "usdc", "invoice"],
+  "supportedPaymentMethods": [
+    "card",
+    "usdc",
+    "invoice"
+  ],
   "merchantOfRecordName": "Javelina Propeller Laboratory LLC",
   "immediatePayment": true,
-  "notes": "JPL self-serve checkout. Until the online payment link is live, JPL sends a Stripe invoice (card payment) with each order confirmation."
+  "notes": "JPL self-serve checkout via the reference checkout adapter (one Stripe payment per order). Currently in Stripe TEST mode; the live key swap is a wrangler secret update, no catalog change.",
+  "baseUrl": "https://arrow-checkout-adapter.javelinapropellerlaboratory.workers.dev/checkout"
 }
