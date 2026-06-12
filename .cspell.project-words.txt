@@ -6,8 +6,8 @@ arrowair
 busbars
 configurator
 cspell
-devkit
 DevKit
+devkit
 devkits
 Docusaurus
 frontends
@@ -21,11 +21,17 @@ Holybro
 Javelina
 Julius
 KTSY
+lidar
 list)
+nanoradar
+nanuk
 onchain
 PEBGX
 PETG
 Quiver
+radiomaster
+recomputable
+rplidar
 SIYI
 SKYRC
 Stripe

@@ -70,6 +70,33 @@ def main() -> int:
         if manufacturer_id not in manufacturers:
             raise SystemExit(f"checkout group {group_id}: unknown manufacturerId {manufacturer_id}")
 
+    for product_id, product in products.items():
+        for entry in product.get("compatibleWith", []):
+            if entry not in products:
+                raise SystemExit(f"product {product_id}: unknown compatibleWith id {entry}")
+
+        group_ids: set[str] = set()
+        option_groups = product.get("optionGroups", [])
+        if not isinstance(option_groups, list):
+            raise SystemExit(f"product {product_id}: optionGroups must be an array")
+        for group in option_groups:
+            if not isinstance(group, dict):
+                raise SystemExit(f"product {product_id}: option group must be an object")
+            require(Path(f"product:{product_id}"), group, ["id", "label", "selection", "productIds"])
+            if group["id"] in group_ids:
+                raise SystemExit(f"product {product_id}: duplicate option group id {group['id']}")
+            group_ids.add(group["id"])
+            for option_product_id in group["productIds"]:
+                if option_product_id == product_id:
+                    raise SystemExit(
+                        f"product {product_id}: option group {group['id']} references the product itself"
+                    )
+                if option_product_id not in products:
+                    raise SystemExit(
+                        f"product {product_id}: option group {group['id']} references "
+                        f"unknown product {option_product_id}"
+                    )
+
     offer_ids: set[str] = set()
     for product_id, product in products.items():
         if product["supportPolicyId"] not in policy_ids:

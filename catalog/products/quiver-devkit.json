@@ -9,7 +9,7 @@
   "included": [
     {
       "label": "Quiver airframe",
-      "notes": "CNC 6061 aluminum plates, carbon fiber arms and landing gear, busbars, and PETG-CF enclosure — built and tested to the Quiver Manufacturing Guide."
+      "notes": "CNC 6061 aluminum plates, carbon fiber arms and landing gear, busbars, and PETG-CF enclosure \u2014 built and tested to the Quiver Manufacturing Guide."
     },
     {
       "label": "Propulsion set",
@@ -31,22 +31,22 @@
   ],
   "notIncluded": [
     {
-      "label": "Payloads and optional sensors",
-      "notes": "Obstacle-avoidance lidar, forward radar, and a transport case are planned as optional add-ons."
+      "label": "Payloads",
+      "notes": "Mission payloads beyond the included gimbal camera are not part of the kit."
     }
   ],
   "requiredSeparately": [
     {
       "label": "Flight battery",
-      "notes": "14S LiPo, e.g. Tattu 14S 30,000 mAh."
+      "notes": "14S LiPo, e.g. Tattu 14S 30,000 mAh. Available as an add-on on this page."
     },
     {
       "label": "Battery charger",
-      "notes": "High-power 14S-capable charger, e.g. SKYRC PC3000H."
+      "notes": "High-power 14S-capable charger, e.g. SKYRC PC3000H. Available as an add-on on this page."
     },
     {
       "label": "RC transmitter and receiver",
-      "notes": "e.g. RadioMaster Boxer with compatible receiver."
+      "notes": "e.g. RadioMaster Boxer with compatible receiver. Available as an add-on on this page."
     }
   ],
   "standards": [
@@ -145,5 +145,40 @@
     "devkit",
     "aip-009"
   ],
-  "updatedAt": "2026-06-11"
+  "updatedAt": "2026-06-12",
+  "storeRole": "base-product",
+  "media": {
+    "primaryImage": "https://www.arrowair.com/images/quiver_angle_longlens-optimized.avif",
+    "alt": "Quiver DevKit aircraft photographed in flight trim"
+  },
+  "optionGroups": [
+    {
+      "id": "field-equipment",
+      "label": "Field equipment",
+      "selection": "multiple",
+      "productIds": [
+        "skyrc-pc3000h-charger-v0",
+        "tattu-14s-battery-v0",
+        "radiomaster-boxer-tx-v0",
+        "nanuk-976-case-v0"
+      ]
+    },
+    {
+      "id": "sensors",
+      "label": "Sensors",
+      "selection": "multiple",
+      "productIds": [
+        "rplidar-s2l-v0",
+        "nanoradar-mr82-v0"
+      ]
+    },
+    {
+      "id": "spares",
+      "label": "Spares",
+      "selection": "multiple",
+      "productIds": [
+        "quiver-spare-propellers-v0"
+      ]
+    }
+  ]
 }

@@ -1,0 +1,70 @@
+{
+  "id": "radiomaster-boxer-tx-v0",
+  "slug": "radiomaster-boxer-tx",
+  "name": "RadioMaster Boxer TX Bundle",
+  "category": "tooling",
+  "status": "available",
+  "lifecycleStage": "devkit",
+  "storeRole": "optional-addon",
+  "compatibleWith": [
+    "quiver-devkit-v0"
+  ],
+  "shortDescription": "RC transmitter bundle for the Quiver DevKit: RadioMaster Boxer with battery and compatible receiver.",
+  "included": [
+    {
+      "label": "RadioMaster Boxer transmitter, battery, and compatible receiver",
+      "notes": "Confirm exact receiver model before public launch."
+    }
+  ],
+  "notIncluded": [],
+  "requiredSeparately": [],
+  "standards": [
+    {
+      "id": "quiver-manufacturing-guide",
+      "label": "Quiver Manufacturing Guide",
+      "url": "https://www.arrowair.com/quiver/Manufacturing/Manufacturing-Guide",
+      "kind": "manufacturing-guide",
+      "required": true,
+      "description": "Reference standard until a dedicated accessories standard exists."
+    }
+  ],
+  "supportPolicyId": "devkit-manufacturer-first-support",
+  "warrantyPolicyId": "one-year-workmanship-devkit",
+  "offers": [
+    {
+      "id": "radiomaster-boxer-tx-thomas-texas",
+      "manufacturerId": "thomas-texas",
+      "checkoutGroupId": "thomas-store",
+      "status": "available",
+      "regionLabel": "United States",
+      "shipsFrom": "Texas, USA",
+      "shipsTo": [
+        "US"
+      ],
+      "priceDisplay": "$309 USD",
+      "price": {
+        "amount": 30900,
+        "currency": "USD"
+      },
+      "leadTimeDisplay": "Ships in 3 business days",
+      "paymentMethods": [
+        "card",
+        "usdc",
+        "invoice"
+      ],
+      "checkout": {
+        "mode": "manufacturer-site",
+        "ctaLabel": "Add from Javelina Propeller Laboratory",
+        "immediatePayment": true
+      },
+      "merchantOfRecordName": "Javelina Propeller Laboratory LLC",
+      "notes": "Pass-through retail accessory (cost + 15%); no DAO fee is proposed on pass-through parts."
+    }
+  ],
+  "tags": [
+    "quiver",
+    "field-equipment",
+    "radio"
+  ],
+  "updatedAt": "2026-06-12"
+}

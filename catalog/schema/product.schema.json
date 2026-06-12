@@ -57,6 +57,38 @@
       "type": "array",
       "items": { "$ref": "#/$defs/offer" }
     },
+    "compatibleWith": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Product ids this item can be offered alongside (e.g. on a configurator page)."
+    },
+    "storeRole": {
+      "type": "string",
+      "enum": ["base-product", "optional-addon", "required-choice", "replacement-part", "consumable", "service"]
+    },
+    "optionGroups": {
+      "type": "array",
+      "description": "Configurator sections for flagship product pages (see docs/storefront-model.md).",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["id", "label", "selection", "productIds"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "selection": { "type": "string", "enum": ["multiple"] },
+          "productIds": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "media": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "primaryImage": { "type": "string" },
+        "alt": { "type": "string" }
+      }
+    },
     "tags": {
       "type": "array",
       "items": { "type": "string" }
