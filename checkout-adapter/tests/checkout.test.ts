@@ -160,3 +160,27 @@ describe('resolveReturnUrl', () => {
     ).toBe(fallback);
   });
 });
+
+describe('wildcard-port allowlist entries', () => {
+  const allowed = parseAllowedOrigins('https://store.arrowair.com,http://localhost:*');
+  const fallback = 'https://store.arrowair.com/orders/payment-complete';
+
+  it('matches any loopback port', () => {
+    expect(resolveReturnUrl('http://localhost:4322/orders/payment-complete', allowed, fallback)).toBe(
+      'http://localhost:4322/orders/payment-complete',
+    );
+    expect(resolveReturnUrl('http://localhost:5000/x', allowed, fallback)).toBe(
+      'http://localhost:5000/x',
+    );
+  });
+
+  it('wildcard matches hostname exactly, not lookalikes or other protocols', () => {
+    expect(resolveReturnUrl('http://localhost.evil.example:4322/x', allowed, fallback)).toBe(fallback);
+    expect(resolveReturnUrl('http://notlocalhost:4322/x', allowed, fallback)).toBe(fallback);
+    expect(resolveReturnUrl('https://localhost:4322/x', allowed, fallback)).toBe(fallback);
+  });
+
+  it('exact entries still require an exact origin match', () => {
+    expect(resolveReturnUrl('https://store.arrowair.com:8443/x', allowed, fallback)).toBe(fallback);
+  });
+});
