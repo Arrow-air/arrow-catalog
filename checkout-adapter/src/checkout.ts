@@ -83,11 +83,26 @@ export function resolveReturnUrl(
   if (!raw) return fallback;
   try {
     const url = new URL(raw);
-    if (allowedOrigins.includes(url.origin)) return url.toString();
+    if (allowedOrigins.some((allowed) => originMatches(url, allowed))) {
+      return url.toString();
+    }
   } catch {
     // malformed URL — fall through to the default
   }
   return fallback;
+}
+
+/**
+ * An allowlist entry is an exact origin, or `protocol://host:*` to match any
+ * port. Wildcard ports exist for loopback development (dev servers hop ports;
+ * RFC 8252 blesses the same pattern for OAuth) — a loopback redirect can only
+ * point at the customer's own machine.
+ */
+function originMatches(url: URL, allowed: string): boolean {
+  if (allowed.endsWith(':*')) {
+    return `${url.protocol}//${url.hostname}` === allowed.slice(0, -2);
+  }
+  return url.origin === allowed;
 }
 
 /** Parse the ALLOWED_RETURN_ORIGINS env var (comma-separated origins). */
