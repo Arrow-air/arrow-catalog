@@ -61,6 +61,16 @@ export default {
         allowedOrigins,
         env.CANCEL_URL,
       );
+      // Observable via `wrangler tail` when debugging a frontend's redirect
+      // setup; return URLs are not customer data.
+      console.log(
+        JSON.stringify({
+          ref,
+          requestedReturn: url.searchParams.get('return'),
+          resolvedReturn: successUrl,
+        }),
+      );
+
       const offers = await loadOffers(env.CATALOG_REPO, env.CATALOG_REF);
       const lines = priceLineItems(offers, items, env.MANUFACTURER_ID);
       const form = buildSessionForm(lines, ref, successUrl, cancelUrl);

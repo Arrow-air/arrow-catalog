@@ -15,8 +15,10 @@ CATALOG_REF = "main"
 SUCCESS_URL = "https://store.arrowair.com/orders/payment-complete"
 CANCEL_URL = "https://store.arrowair.com/cart"
 # Origins allowed in `return`/`cancel` params (open-redirect protection).
-# localhost is included for local frontend development against test mode.
-ALLOWED_RETURN_ORIGINS = "https://store.arrowair.com,http://localhost:4321"
+# Both loopback spellings are included for local frontend development
+# against test mode — browsers treat localhost and 127.0.0.1 as distinct
+# origins, and a frontend on either must round-trip correctly.
+ALLOWED_RETURN_ORIGINS = "https://store.arrowair.com,http://localhost:4321,http://127.0.0.1:4321"
 
 # Secret (never in this file): wrangler secret put STRIPE_SECRET_KEY
 # Use a RESTRICTED key with only Checkout Sessions write access.
