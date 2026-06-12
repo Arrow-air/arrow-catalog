@@ -1,0 +1,70 @@
+{
+  "id": "skyrc-pc3000h-charger-v0",
+  "slug": "skyrc-pc3000h-charger",
+  "name": "SKYRC PC3000H Charger",
+  "category": "tooling",
+  "status": "available",
+  "lifecycleStage": "devkit",
+  "storeRole": "optional-addon",
+  "compatibleWith": [
+    "quiver-devkit-v0"
+  ],
+  "shortDescription": "High-power charger for the Quiver DevKit's 14S flight batteries.",
+  "included": [
+    {
+      "label": "SKYRC PC3000H charger",
+      "notes": "Confirm included power and balance cabling before public launch."
+    }
+  ],
+  "notIncluded": [],
+  "requiredSeparately": [],
+  "standards": [
+    {
+      "id": "quiver-manufacturing-guide",
+      "label": "Quiver Manufacturing Guide",
+      "url": "https://www.arrowair.com/quiver/Manufacturing/Manufacturing-Guide",
+      "kind": "manufacturing-guide",
+      "required": true,
+      "description": "Reference standard until a dedicated accessories standard exists."
+    }
+  ],
+  "supportPolicyId": "devkit-manufacturer-first-support",
+  "warrantyPolicyId": "one-year-workmanship-devkit",
+  "offers": [
+    {
+      "id": "skyrc-pc3000h-charger-thomas-texas",
+      "manufacturerId": "thomas-texas",
+      "checkoutGroupId": "thomas-store",
+      "status": "available",
+      "regionLabel": "United States",
+      "shipsFrom": "Texas, USA",
+      "shipsTo": [
+        "US"
+      ],
+      "priceDisplay": "$699 USD",
+      "price": {
+        "amount": 69900,
+        "currency": "USD"
+      },
+      "leadTimeDisplay": "Ships in 3 business days",
+      "paymentMethods": [
+        "card",
+        "usdc",
+        "invoice"
+      ],
+      "checkout": {
+        "mode": "manufacturer-site",
+        "ctaLabel": "Add from Javelina Propeller Laboratory",
+        "immediatePayment": true
+      },
+      "merchantOfRecordName": "Javelina Propeller Laboratory LLC",
+      "notes": "Pass-through retail accessory (cost + 15%); no DAO fee is proposed on pass-through parts."
+    }
+  ],
+  "tags": [
+    "quiver",
+    "field-equipment",
+    "charger"
+  ],
+  "updatedAt": "2026-06-12"
+}
